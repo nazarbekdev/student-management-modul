@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_student_admin,student.student,model_student_student,base.group_system,1,1,1,1
+access_student_user,student.student,model_student_student,base.group_user,1,0,0,0
+access_course_course,course.course,model_course_course,base.group_user,1,1,1,1
+access_teacher_admin,teacher.teacher,model_teacher_teacher,base.group_system,1,1,1,1
+access_teacher_user,teacher.teacher,model_teacher_teacher,base.group_user,1,0,0,0
+access_group_admin,course.group,model_course_group,base.group_system,1,1,1,1
+access_group_user,course.group,model_course_group,base.group_user,1,0,0,0
+
+access_course_payment_admin,course.payment,model_course_payment,base.group_system,1,1,1,1
+
+access_payment_admin,course.payment,model_course_payment,base.group_system,1,1,1,1
+access_payment_user,course.payment,model_course_payment,base.group_user,1,0,0,0

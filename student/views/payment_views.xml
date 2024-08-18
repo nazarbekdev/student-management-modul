@@ -1,0 +1,70 @@
+<odoo>
+    <!-- To'lovlar modeli uchun action -->
+    <record id="action_payments" model="ir.actions.act_window">
+        <field name="name">Payments</field>
+        <field name="res_model">course.payment</field>
+        <field name="view_mode">tree,form,graph</field>
+        <field name="context">{'search_default_recent_payments': 1}</field> <!-- Default filter qo'shildi -->
+    </record>
+
+    <!-- Tree view -->
+    <record id="view_payment_tree" model="ir.ui.view">
+        <field name="name">payment.tree</field>
+        <field name="model">course.payment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_id"/>
+                <field name="check_number"/>
+                <field name="amount"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_payment_form" model="ir.ui.view">
+        <field name="name">payment.form</field>
+        <field name="model">course.payment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="student_id"/>
+                        <field name="check_number"/>
+                        <field name="group_id"/>
+                        <field name="amount"/>
+                        <field name="date"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search view -->
+    <record id="view_payment_search" model="ir.ui.view">
+        <field name="name">payment.search</field>
+        <field name="model">course.payment</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter string="Recent Payments" name="recent_payments" domain="[('date', '>=', (context_today() - relativedelta(days=7)).strftime('%Y-%m-%d'))]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Graph view -->
+    <record id="view_payment_graph" model="ir.ui.view">
+        <field name="name">payment.graph</field>
+        <field name="model">course.payment</field>
+        <field name="arch" type="xml">
+            <graph string="Payments">
+                <field name="date" type="row"/>
+                <field name="amount" type="measure"/>
+                <field name="student_id" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Payment menu -->
+    <menuitem id="menu_payment" name="Payments" parent="menu_student_root" action="action_payments"/>
+</odoo>

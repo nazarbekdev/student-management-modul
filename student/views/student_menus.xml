@@ -1,0 +1,51 @@
+<odoo>
+    <!-- Action for student model -->
+    <record id="action_students" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">student.student</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new student.
+            </p>
+        </field>
+    </record>
+
+    <!-- Action for course model -->
+    <record id="action_courses" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">course.course</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Action for teacher model -->
+    <record id="action_teachers" model="ir.actions.act_window">
+        <field name="name">Teachers</field>
+        <field name="res_model">teacher.teacher</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Action for group model -->
+    <record id="action_groups" model="ir.actions.act_window">
+        <field name="name">Groups</field>
+        <field name="res_model">course.group</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Action for payment model -->
+    <record id="action_payments" model="ir.actions.act_window">
+        <field name="name">Payments</field>
+        <field name="res_model">course.payment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu items -->
+    <menuitem id="menu_student_root" name="Student Management" sequence="1"/>
+    <menuitem id="menu_students" name="Students" parent="menu_student_root" action="action_students"/>
+
+    <!-- Submenus -->
+    <menuitem id="menu_course" name="Courses" parent="menu_student_root" action="action_courses"/>
+    <menuitem id="menu_teacher" name="Teachers" parent="menu_student_root" action="action_teachers"/>
+    <menuitem id="menu_group" name="Groups" parent="menu_student_root" action="action_groups"/>
+    <menuitem id="menu_payment" name="Payments" parent="menu_student_root" action="action_payments"/>
+</odoo>
