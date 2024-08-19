@@ -1,0 +1,41 @@
+<odoo>
+    <!-- Menyu qismi -->
+    <menuitem id="menu_financial_report" name="Financial Reports" parent="account.menu_finance" sequence="10"/>
+
+    <!-- Filtrlangan va guruhlangan hisobotlar uchun -->
+    <record id="action_financial_report" model="ir.actions.act_window">
+        <field name="name">Financial Report</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">pivot,graph,tree</field>
+        <field name="context">{'group_by': ['transaction_type'], 'search_default_filter_income': 1}</field>
+        <field name="domain">[('move_type','=','entry')]</field>
+    </record>
+
+    <menuitem id="menu_financial_report_action" name="Financial Report" parent="menu_financial_report" action="action_financial_report"/>
+
+    <!-- Graph view -->
+    <record id="view_account_move_graph" model="ir.ui.view">
+        <field name="name">account.move.graph</field>
+        <field name="model">account.move</field>
+        <field name="arch" type="xml">
+            <graph string="Transactions" type="bar">
+                <field name="date"/>
+                <field name="amount_total"/>
+                <field name="transaction_type" type="row"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Pivot view -->
+    <record id="view_account_move_pivot" model="ir.ui.view">
+        <field name="name">account.move.pivot</field>
+        <field name="model">account.move</field>
+        <field name="arch" type="xml">
+            <pivot string="Transactions">
+                <field name="date"/>
+                <field name="amount_total"/>
+                <field name="transaction_type"/>
+            </pivot>
+        </field>
+    </record>
+</odoo>

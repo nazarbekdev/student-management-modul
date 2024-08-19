@@ -11,18 +11,20 @@
         </field>
     </record>
 
+    <!-- Tree view for student -->
     <record id="view_student_tree" model="ir.ui.view">
         <field name="name">student.tree</field>
         <field name="model">student.student</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name" string="Name" />
-                <field name="age" string="Age" />
+                <field name="birth_day" string="Birth Day" />
                 <field name="phone_number" string="Phone Number" width="200"/>
             </tree>
         </field>
     </record>
 
+    <!-- Form view for student -->
     <record id="view_student_form" model="ir.ui.view">
         <field name="name">student.form</field>
         <field name="model">student.student</field>
@@ -31,7 +33,7 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="age"/>
+                        <field name="birth_day"/>
                         <field name="phone_number"/>
                         <field name="payment_ids"/>
                     </group>
@@ -39,6 +41,4 @@
             </form>
         </field>
     </record>
-
-    <menuitem id="menu_students" name="Students" parent="menu_student_root" action="action_students"/>
 </odoo>

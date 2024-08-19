@@ -58,6 +58,4 @@
             </form>
         </field>
     </record>
-
-    <menuitem id="menu_group" name="Groups" parent="menu_student_root" action="action_groups"/>
 </odoo>

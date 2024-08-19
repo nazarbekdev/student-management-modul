@@ -6,6 +6,7 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <!-- Tree view for Teacher -->
     <record id="view_teacher_tree" model="ir.ui.view">
         <field name="name">teacher.tree</field>
         <field name="model">teacher.teacher</field>
@@ -17,6 +18,7 @@
         </field>
     </record>
 
+    <!-- Form View for Teacher -->
     <record id="view_teacher_form" model="ir.ui.view">
         <field name="name">teacher.form</field>
         <field name="model">teacher.teacher</field>
@@ -31,6 +33,4 @@
             </form>
         </field>
     </record>
-
-    <menuitem id="menu_teacher" name="Teachers" parent="menu_student_root" action="action_teachers"/>
 </odoo>

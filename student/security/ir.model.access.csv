@@ -1,13 +1,16 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_student_admin,student.student,model_student_student,base.group_system,1,1,1,1
-access_student_user,student.student,model_student_student,base.group_user,1,0,0,0
-access_course_course,course.course,model_course_course,base.group_user,1,1,1,1
-access_teacher_admin,teacher.teacher,model_teacher_teacher,base.group_system,1,1,1,1
-access_teacher_user,teacher.teacher,model_teacher_teacher,base.group_user,1,0,0,0
-access_group_admin,course.group,model_course_group,base.group_system,1,1,1,1
-access_group_user,course.group,model_course_group,base.group_user,1,0,0,0
+access_student_admin,student.student,model_student_student,student.group_admin,1,1,1,1
+access_student_administrator,student.student,model_student_student,student.group_administrator,1,1,1,0
 
-access_course_payment_admin,course.payment,model_course_payment,base.group_system,1,1,1,1
+access_teacher_teacher,teacher.teacher,model_teacher_teacher,student.group_admin,1,1,1,1
+access_teacher_payment,teacher.payment,model_teacher_payment,student.group_admin,1,1,1,1
+access_teacher_administrator,teacher.teacher,model_teacher_teacher,student.group_administrator,1,1,1,0
 
-access_payment_admin,course.payment,model_course_payment,base.group_system,1,1,1,1
-access_payment_user,course.payment,model_course_payment,base.group_user,1,0,0,0
+access_group_admin,course.group,model_course_group,student.group_admin,1,1,1,1
+access_group_administrator,course.group,model_course_group,student.group_administrator,1,1,1,0
+
+access_payment_admin,course.payment,model_course_payment,student.group_admin,1,1,1,1
+access_payment_administrator,course.payment,model_course_payment,student.group_administrator,1,1,1,0
+
+access_course_admin,course.course,model_course_course,student.group_admin,1,1,1,1
+access_course_administrator,course.course,model_course_course,student.group_administrator,1,1,1,0

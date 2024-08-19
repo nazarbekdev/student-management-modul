@@ -1,10 +1,10 @@
 <odoo>
-    <!-- To'lovlar modeli uchun action -->
+    <!-- Action for payment -->
     <record id="action_payments" model="ir.actions.act_window">
         <field name="name">Payments</field>
         <field name="res_model">course.payment</field>
-        <field name="view_mode">tree,form,graph</field>
-        <field name="context">{'search_default_recent_payments': 1}</field> <!-- Default filter qo'shildi -->
+        <field name="view_mode">tree,form,graph,pivot</field>
+        <field name="context">{'search_default_recent_payments': 1}</field>
     </record>
 
     <!-- Tree view -->
@@ -65,6 +65,16 @@
         </field>
     </record>
 
-    <!-- Payment menu -->
-    <menuitem id="menu_payment" name="Payments" parent="menu_student_root" action="action_payments"/>
+    <!-- Pivot view -->
+    <record id="view_payment_pivot" model="ir.ui.view">
+        <field name="name">payment.pivot</field>
+        <field name="model">course.payment</field>
+        <field name="arch" type="xml">
+            <pivot string="Payments">
+                <field name="date" type="row"/>
+                <field name="amount" type="measure"/>
+                <field name="student_id" type="col"/>
+            </pivot>
+        </field>
+    </record>
 </odoo>

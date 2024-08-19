@@ -1,0 +1,13 @@
+<odoo>
+    <!-- Admin role -->
+    <record id="group_admin" model="res.groups">
+        <field name="name">Admin</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+
+    <!-- Administrator role -->
+    <record id="group_administrator" model="res.groups">
+        <field name="name">Administrator</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+    </record>
+</odoo>

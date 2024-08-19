@@ -39,13 +39,34 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- Menu items -->
-    <menuitem id="menu_student_root" name="Student Management" sequence="1"/>
-    <menuitem id="menu_students" name="Students" parent="menu_student_root" action="action_students"/>
+    <!-- Action for Teacher Payment model -->
+    <record id="action_teacher_payments" model="ir.actions.act_window">
+        <field name="name">Teacher Payments</field>
+        <field name="res_model">teacher.payment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 
-    <!-- Submenus -->
-    <menuitem id="menu_course" name="Courses" parent="menu_student_root" action="action_courses"/>
-    <menuitem id="menu_teacher" name="Teachers" parent="menu_student_root" action="action_teachers"/>
-    <menuitem id="menu_group" name="Groups" parent="menu_student_root" action="action_groups"/>
-    <menuitem id="menu_payment" name="Payments" parent="menu_student_root" action="action_payments"/>
+    <!-- Action for Financial Report (from account_move_views.xml) -->
+    <record id="action_financial_report" model="ir.actions.act_window">
+        <field name="name">Financial Report</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">pivot,graph,tree</field>
+        <field name="context">{'group_by': ['transaction_type'], 'search_default_filter_income': 1}</field>
+        <field name="domain">[('move_type','=','entry')]</field>
+    </record>
+
+ <!-- Root Menu -->
+    <menuitem id="menu_student_root" name="Student Management" sequence="1"/>
+
+    <!-- Menus for Admin and Administrator -->
+    <menuitem id="menu_students" name="Students" parent="menu_student_root" action="action_students" groups="student.group_admin,student.group_administrator"/>
+    <menuitem id="menu_courses" name="Courses" parent="menu_student_root" action="action_courses" groups="student.group_admin,student.group_administrator"/>
+    <menuitem id="menu_teachers" name="Teachers" parent="menu_student_root" action="action_teachers" groups="student.group_admin,student.group_administrator"/>
+    <menuitem id="menu_groups" name="Groups" parent="menu_student_root" action="action_groups" groups="student.group_admin,student.group_administrator"/>
+    <menuitem id="menu_payments" name="Payments" parent="menu_student_root" action="action_payments" groups="student.group_admin,student.group_administrator"/>
+
+    <!-- Menus only for Admin -->
+    <menuitem id="menu_teacher_payments" name="Teacher Payments" parent="menu_student_root" action="action_teacher_payments" groups="student.group_admin"/>
+    <menuitem id="menu_financial_reports" name="Financial Reports" parent="menu_student_root" action="action_financial_report" groups="student.group_admin"/>
+
 </odoo>

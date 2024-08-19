@@ -32,5 +32,5 @@
         </field>
     </record>
 
-    <menuitem id="menu_course" name="Courses" parent="menu_student_root" action="action_courses"/>
+<!--    <menuitem id="menu_course" name="Courses" parent="menu_student_root" action="action_courses"/>-->
 </odoo>
