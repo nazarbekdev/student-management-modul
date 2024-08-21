@@ -10,5 +10,5 @@ class CourseGroup(models.Model):
     name = fields.Char(string="Group Name", required=True)
     course_id = fields.Many2one('course.course', string="Course", required=True)
     teacher_id = fields.Many2one('teacher.teacher', string="Teacher")
-    student_ids = fields.One2many('student.student', 'group_id', string="Students")
+    student_ids = fields.Many2many('student.student', string="Students")
     payment_ids = fields.One2many('course.payment', 'group_id', string="Payments")

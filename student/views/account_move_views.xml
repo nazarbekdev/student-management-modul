@@ -19,9 +19,9 @@
         <field name="model">account.move</field>
         <field name="arch" type="xml">
             <graph string="Transactions" type="bar">
-                <field name="date"/>
-                <field name="amount_total"/>
-                <field name="transaction_type" type="row"/>
+                <field name="date" type="row"/>
+                <field name="amount_total" type="measure"/>
+                <field name="transaction_type" type="col"/>
             </graph>
         </field>
     </record>
@@ -32,9 +32,9 @@
         <field name="model">account.move</field>
         <field name="arch" type="xml">
             <pivot string="Transactions">
-                <field name="date"/>
-                <field name="amount_total"/>
-                <field name="transaction_type"/>
+                <field name="date" type="row"/>
+                <field name="amount_total" type="measure"/>
+                <field name="transaction_type" type="col"/>
             </pivot>
         </field>
     </record>

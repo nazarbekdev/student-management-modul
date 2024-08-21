@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class CoursePayment(models.Model):
@@ -12,4 +12,4 @@ class CoursePayment(models.Model):
     date = fields.Date(string="Payment Date", default=fields.Date.today)
     description = fields.Text(string="Description")
     group_id = fields.Many2one('course.group', string="Group", required=True)
-    check_number = fields.Char(string="Check Number", required=True, index=True, default='INV/2024/00000')
+    check_number = fields.Char(string="Check Number", required=True, index=True, default='INV/xxxxx')
